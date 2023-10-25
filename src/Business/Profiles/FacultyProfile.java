@@ -24,7 +24,7 @@ public class FacultyProfile extends Profile {
     private String Major;
 
     public Person getPerson() {
-        return person; 
+        return person;
     }
 
     public void setPerson(Person person) {
