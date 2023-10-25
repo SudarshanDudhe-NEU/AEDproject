@@ -23,7 +23,7 @@ public class StudentProfile extends Profile {
 //        transcript = new Transcript(this);
 //        employmenthistory = new EmploymentHistroy();
     }
-
+ 
     @Override
     public String getRole() {
         return "Student";
