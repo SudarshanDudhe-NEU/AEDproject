@@ -11,4 +11,5 @@ package Business.Profiles;
  */
 public class StudentAccount {
     
+    
 }
