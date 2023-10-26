@@ -25,13 +25,13 @@ public class FacultyCoursesDirectory {
         facultyCoursesList = new ArrayList<>();
     }
 
-    public FacultyCourses newFacultyProfile(FacultyProfile facultyProfile) {
+    public FacultyCourses newFacultyCourses(FacultyProfile facultyProfile) {
         FacultyCourses facultyCourses = new FacultyCourses(facultyProfile);
         facultyCoursesList.add(facultyCourses);
         return facultyCourses;
     }
 
-    public FacultyCourses findFaculty(String id) {
+    public FacultyCourses findFacultyCourses(String id) {
         for (FacultyCourses facultyCourses : facultyCoursesList) {
             if (facultyCourses.isMatch(id)) {
                 return facultyCourses;
