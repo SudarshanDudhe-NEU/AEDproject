@@ -5,6 +5,7 @@
  */
 package Business;
 
+import Business.Entities.FacultyCoursesDirectory;
 import Business.Person.PersonDirectory;
 import Business.Profiles.EmployeeDirectory;
 import Business.Profiles.FacultyDirectory;
@@ -23,6 +24,7 @@ public class Business {
     EmployeeDirectory employeedirectory;
     UserAccountDirectory useraccountdirectory;
     FacultyDirectory facultyDirectory;
+    FacultyCoursesDirectory facultyCoursesDirectory;
 
 
     public Business(String n) {
@@ -32,6 +34,7 @@ public class Business {
         employeedirectory = new EmployeeDirectory(this);
         useraccountdirectory = new UserAccountDirectory();
         facultyDirectory = new FacultyDirectory(this);
+        facultyCoursesDirectory = new FacultyCoursesDirectory(this);
 
     }
 
@@ -50,6 +53,10 @@ public class Business {
     
     public FacultyDirectory getFacultyDirectory() {
         return facultyDirectory;
+    }
+    
+    public FacultyCoursesDirectory getFacultyCoursesDirectory() {
+        return facultyCoursesDirectory;
     }
 
 

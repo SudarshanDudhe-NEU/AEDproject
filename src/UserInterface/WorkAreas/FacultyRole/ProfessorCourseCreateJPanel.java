@@ -7,15 +7,8 @@ package UserInterface.WorkAreas.FacultyRole;
 
 import Business.Business;
 import Business.Entities.FacultyCourses;
-import org.mindrot.jbcrypt.BCrypt;
-import Business.Person.Person;
-import Business.Person.PersonDirectory;
-import Business.UserAccounts.UserAccount;
-import Business.Profiles.EmployeeDirectory;
-import Business.Profiles.FacultyDirectory;
+import Business.Entities.FacultyCoursesDirectory;
 import Business.Profiles.FacultyProfile;
-import Business.UserAccounts.UserAccountDirectory;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -30,11 +23,13 @@ public class ProfessorCourseCreateJPanel extends javax.swing.JPanel {
      */
     JPanel CardSequencePanel;
     Business business;
+    FacultyProfile facultyProfile;
 
 
-    public ProfessorCourseCreateJPanel(Business bz, JPanel jp) {
+    public ProfessorCourseCreateJPanel(Business bz, JPanel jp, FacultyProfile fp) {
         CardSequencePanel = jp;
         this.business = bz;
+        this.facultyProfile = fp;
         initComponents();
 
     }
@@ -196,8 +191,8 @@ public class ProfessorCourseCreateJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         FacultyCourses facultyCourses;
-        FacultyDirectory facultyDirectory = business.getFacultyDirectory();
-
+        FacultyCoursesDirectory facultyCoursesDirectory = business.getFacultyCoursesDirectory();
+        facultyCourses = facultyCoursesDirectory.newFacultyCourses(facultyProfile);
         facultyCourses.setCourseName(txtCourseName.getText());
 //	facultyCourses.setCourseId(Integer.parseInt(txtCourseId.getText())); // Assuming txtCourseId is a JTextField
 	facultyCourses.setCourseDescription(txtAreaCourseDescription.getText());
