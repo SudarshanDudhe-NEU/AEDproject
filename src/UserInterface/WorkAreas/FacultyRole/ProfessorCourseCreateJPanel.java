@@ -52,6 +52,17 @@ public class ProfessorCourseCreateJPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         lblTitle1 = new javax.swing.JLabel();
+        lblCourseName = new javax.swing.JLabel();
+        txtCourseName = new javax.swing.JTextField();
+        lblCourseType = new javax.swing.JLabel();
+        txtCourseType = new javax.swing.JTextField();
+        lblCourseDuration = new javax.swing.JLabel();
+        txtCourseDuration = new javax.swing.JTextField();
+        lblCourseStatus = new javax.swing.JLabel();
+        lblCourseDescription = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaCourseDescription = new javax.swing.JTextArea();
+        txtCourseStatus = new javax.swing.JCheckBox();
 
         btnCreate.setText("Create");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -70,39 +81,136 @@ public class ProfessorCourseCreateJPanel extends javax.swing.JPanel {
         lblTitle1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         lblTitle1.setText("Course Registration");
 
+        lblCourseName.setText("Course Name : ");
+
+        txtCourseName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCourseNameActionPerformed(evt);
+            }
+        });
+
+        lblCourseType.setText("Course Type : ");
+
+        txtCourseType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCourseTypeActionPerformed(evt);
+            }
+        });
+
+        lblCourseDuration.setText("Course Duration :");
+
+        txtCourseDuration.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCourseDurationActionPerformed(evt);
+            }
+        });
+
+        lblCourseStatus.setText("Course Status :");
+
+        lblCourseDescription.setText("Course Description : ");
+
+        txtAreaCourseDescription.setColumns(20);
+        txtAreaCourseDescription.setRows(5);
+        jScrollPane1.setViewportView(txtAreaCourseDescription);
+
+        txtCourseStatus.setText("Active");
+        txtCourseStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCourseStatusActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(552, 552, 552)
-                .addComponent(btnBack)
-                .addGap(26, 26, 26))
             .addGroup(layout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCourseStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCourseType, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCourseDescription)
+                    .addComponent(lblCourseName)
+                    .addComponent(lblCourseDuration))
+                .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(btnCreate))
+                        .addComponent(btnCreate)
+                        .addGap(93, 93, 93)
+                        .addComponent(btnBack)
+                        .addGap(93, 93, 93))
+                    .addComponent(txtCourseStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(184, 184, 184)
-                        .addComponent(lblTitle1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addComponent(txtCourseType, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txtCourseDuration, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txtCourseName))
+                        .addGap(165, 165, 165)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(221, 221, 221)
+                .addComponent(lblTitle1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jScrollPane1, txtCourseDuration, txtCourseName, txtCourseType});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnCreate});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addComponent(lblTitle1)
-                .addGap(436, 436, 436)
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblCourseDescription)
+                        .addGap(134, 134, 134)
+                        .addComponent(lblCourseType)
+                        .addGap(36, 36, 36)
+                        .addComponent(lblCourseDuration)
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCourseStatus)
+                            .addComponent(txtCourseStatus)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCourseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCourseName))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(txtCourseType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(txtCourseDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)))
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(btnCreate))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCreate)
+                    .addComponent(btnBack))
+                .addGap(42, 42, 42))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-        // TODO add your handling code here:
+        FacultyCourses facultyCourses;
+        FacultyDirectory facultyDirectory = business.getFacultyDirectory();
+
+        facultyCourses.setCourseName(txtCourseName.getText());
+//	facultyCourses.setCourseId(Integer.parseInt(txtCourseId.getText())); // Assuming txtCourseId is a JTextField
+	facultyCourses.setCourseDescription(txtAreaCourseDescription.getText());
+//	facultyCourses.setCourseTotalEnrollment(txtTotalEnrollment.getText());
+	facultyCourses.setCourseType(txtCourseType.getText());
+	facultyCourses.setCourseDuration(txtCourseDuration.getText());
+	facultyCourses.setCourseStatus(Boolean.parseBoolean(txtCourseStatus.getText())); 
+
+        System.out.println(facultyCourses);
+        JOptionPane.showMessageDialog(this, "Information Saved.");
+        FacultyWorkAreaJPanel facultyWorkAreaJPanel = new FacultyWorkAreaJPanel(business, CardSequencePanel);
+        CardSequencePanel.add("facultyWorkAreaJPanel", facultyWorkAreaJPanel);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);        // TODO add your handling code here:
         
     }//GEN-LAST:event_btnCreateActionPerformed
 
@@ -110,15 +218,39 @@ public class ProfessorCourseCreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         CardSequencePanel.remove(this);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-//        workArea.remove(this);
-//        CardLayout layout = (CardLayout) workArea.getLayout();
-//        layout.previous(workArea);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtCourseNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCourseNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCourseNameActionPerformed
+
+    private void txtCourseTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCourseTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCourseTypeActionPerformed
+
+    private void txtCourseDurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCourseDurationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCourseDurationActionPerformed
+
+    private void txtCourseStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCourseStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCourseStatusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCourseDescription;
+    private javax.swing.JLabel lblCourseDuration;
+    private javax.swing.JLabel lblCourseName;
+    private javax.swing.JLabel lblCourseStatus;
+    private javax.swing.JLabel lblCourseType;
     private javax.swing.JLabel lblTitle1;
+    private javax.swing.JTextArea txtAreaCourseDescription;
+    private javax.swing.JTextField txtCourseDuration;
+    private javax.swing.JTextField txtCourseName;
+    private javax.swing.JCheckBox txtCourseStatus;
+    private javax.swing.JTextField txtCourseType;
     // End of variables declaration//GEN-END:variables
 }
