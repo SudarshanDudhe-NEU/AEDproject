@@ -30,6 +30,7 @@ class ConfigureABusiness {
         Person xeroxsalesperson001 = persondirectory.newPerson("Xerox sales");
         Person xeroxmarketingperson001 = persondirectory.newPerson("Xerox marketing");
         Person xeroxadminperson001 = persondirectory.newPerson("Xerox admin");
+        Person courseraadminperson001 = persondirectory.newPerson("coursera admin");
 
 // Create person objects to represent customer organizations. 
         Person person005 = persondirectory.newPerson("Dell");

@@ -30,7 +30,6 @@ public class Business {
         employeedirectory = new EmployeeDirectory(this);
         useraccountdirectory = new UserAccountDirectory();
 
-
     }
 
     public PersonDirectory getPersonDirectory() {

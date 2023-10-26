@@ -17,31 +17,26 @@ import java.util.ArrayList;
 public class FacultyDirectory {
 
     Business business;
-    ArrayList<EmployeeProfile> employeelist;
+    ArrayList<FacultyProfile> facultyList;
 
-    public FacultyDirectory(Business d) {
-
-        business = d;
-        employeelist = new ArrayList();
-
+    public FacultyDirectory(Business business) {
+        this.business = business;
+        facultyList = new ArrayList<>();
     }
 
-    public EmployeeProfile newEmployeeProfile(Person p) {
-
-        EmployeeProfile sp = new EmployeeProfile(p);
-        employeelist.add(sp);
-        return sp;
+    public FacultyProfile newFacultyProfile(Person person) {
+        FacultyProfile facultyProfile = new FacultyProfile(person);
+        facultyList.add(facultyProfile);
+        return facultyProfile;
     }
 
-    public EmployeeProfile findEmployee(String id) {
-
-        for (EmployeeProfile sp : employeelist) {
-
-            if (sp.isMatch(id)) {
-                return sp;
+    public FacultyProfile findFaculty(String id) {
+        for (FacultyProfile facultyProfile : facultyList) {
+            if (facultyProfile.isMatch(id)) {
+                return facultyProfile;
             }
         }
-            return null; //not found after going through the whole list
-         }
+        return null; // not found after going through the whole list
+    }
     
 }

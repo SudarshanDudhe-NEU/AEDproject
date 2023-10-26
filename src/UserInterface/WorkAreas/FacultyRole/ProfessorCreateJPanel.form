@@ -26,7 +26,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblNUID" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="lblEmailId" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblUserName" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
@@ -73,7 +73,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="txtNUID" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="txtEmailId" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -113,8 +113,8 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNUID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNUID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblEmailId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtEmailId" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -206,14 +206,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPasswordActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblNUID">
+    <Component class="javax.swing.JLabel" name="lblEmailId">
       <Properties>
         <Property name="text" type="java.lang.String" value="Email Id"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNUID">
+    <Component class="javax.swing.JTextField" name="txtEmailId">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNUIDActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmailIdActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblMajor">
