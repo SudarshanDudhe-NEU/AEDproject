@@ -20,8 +20,8 @@ public class FacultyProfile extends Profile {
     private String firstName;
     private String lastName;     
     private String location;
-    private String Experience;
-    private String Major;
+    private String experience;
+    private String major;
 
     public Person getPerson() {
         return person;
@@ -80,22 +80,22 @@ public class FacultyProfile extends Profile {
     }
 
     public String getExperience() {
-        return Experience;
+        return experience;
     }
 
-    public void setExperience(String Experience) {
-        this.Experience = Experience;
+    public void setExperience(String experience) {
+        this.experience = experience;
     }
 
     public String getMajor() {
-        return Major;
+        return major;
     }
 
     public void setMajor(String Major) {
-        this.Major = Major;
+        this.major = major;
     }
     
-//    Transcript transcript;
+//   Transcript transcript;
 //   EmploymentHistroy employmenthistory;
 
     public FacultyProfile(Person p) {
