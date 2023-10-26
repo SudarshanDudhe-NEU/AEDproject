@@ -260,7 +260,7 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         FacultyProfile facultyProfile;
         PersonDirectory personDirectory=  business.getPersonDirectory();
-        EmployeeDirectory employeeDirectory=  business.getEmployeeDirectory();
+//        EmployeeDirectory employeeDirectory=  business.getEmployeeDirectory();
         UserAccountDirectory userAccountDirectory=  business.getUserAccountDirectory();
         FacultyDirectory facultyDirectory = business.getFacultyDirectory();
         Person person;
