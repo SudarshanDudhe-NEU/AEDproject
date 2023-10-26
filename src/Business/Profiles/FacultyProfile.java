@@ -23,14 +23,7 @@ public class FacultyProfile extends Profile {
     private String experience;
     private String major;
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
+    
     public String getUsername() {
         return username;
     }
