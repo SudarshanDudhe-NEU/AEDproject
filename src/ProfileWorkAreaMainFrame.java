@@ -13,7 +13,9 @@ import Business.UserAccounts.UserAccount;
 import Business.UserAccounts.UserAccountDirectory;
 
 import UserInterface.WorkAreas.AdminRole.AdminRoleWorkAreaJPanel;
+import UserInterface.WorkAreas.AdminRole.ManagePersonnelWorkResp.ManagePersonsJPanel;
 import UserInterface.WorkAreas.FacultyRole.FacultyWorkAreaJPanel;
+import UserInterface.WorkAreas.FacultyRole.ProfessorCreateJPanel;
 import UserInterface.WorkAreas.StudentRole.StudentWorkAreaJPanel;
 import javax.swing.JPanel;
 
@@ -86,6 +88,11 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
         jLabel2.setText("Password");
 
         btnRegistration.setText("Registration");
+        btnRegistration.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrationActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout actionsidejpanelLayout = new javax.swing.GroupLayout(actionsidejpanel);
         actionsidejpanel.setLayout(actionsidejpanelLayout);
@@ -197,6 +204,13 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
             }
             */
     }//GEN-LAST:event_LoginButtonActionPerformed
+
+    private void btnRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrationActionPerformed
+        // TODO add your handling code here:
+        ManagePersonsJPanel mppd = new ManagePersonsJPanel(business, CardSequencePanel);
+        CardSequencePanel.add(mppd);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_btnRegistrationActionPerformed
 
     /**
      * @param args the command line arguments

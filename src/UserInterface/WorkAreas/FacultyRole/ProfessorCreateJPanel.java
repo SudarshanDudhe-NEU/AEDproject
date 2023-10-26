@@ -5,6 +5,19 @@
  */
 package UserInterface.WorkAreas.FacultyRole;
 
+import Business.Business;
+import org.mindrot.jbcrypt.BCrypt;
+import Business.Person.Person;
+import Business.Person.PersonDirectory;
+import Business.UserAccounts.UserAccount;
+import Business.Profiles.EmployeeDirectory;
+import Business.Profiles.FacultyDirectory;
+import Business.Profiles.FacultyProfile;
+import Business.UserAccounts.UserAccountDirectory;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sudarshan
@@ -14,9 +27,17 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ProfessorCreateJPanel
      */
-    public ProfessorCreateJPanel() {
+    JPanel CardSequencePanel;
+    Business business;
+
+
+    public ProfessorCreateJPanel(Business bz, JPanel jp) {
+        CardSequencePanel = jp;
+        this.business = bz;
         initComponents();
+
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,8 +59,8 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
         txtUserName = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
-        lblNUID = new javax.swing.JLabel();
-        txtNUID = new javax.swing.JTextField();
+        lblEmailId = new javax.swing.JLabel();
+        txtEmailId = new javax.swing.JTextField();
         lblMajor = new javax.swing.JLabel();
         txtMajor = new javax.swing.JTextField();
         lblLocation = new javax.swing.JLabel();
@@ -96,11 +117,11 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblNUID.setText("Email Id");
+        lblEmailId.setText("Email Id");
 
-        txtNUID.addActionListener(new java.awt.event.ActionListener() {
+        txtEmailId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNUIDActionPerformed(evt);
+                txtEmailIdActionPerformed(evt);
             }
         });
 
@@ -141,7 +162,7 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNUID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
@@ -176,7 +197,7 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(129, 129, 129)
                                                 .addComponent(txtExperience, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addComponent(txtNUID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(184, 184, 184)
                         .addComponent(lblTitle1)))
@@ -205,8 +226,8 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNUID)
-                    .addComponent(txtNUID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblEmailId)
+                    .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMajor)
@@ -237,27 +258,45 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        FacultyProfile facultyProfile 
-        User  newUser = userDirectory.addUser();
+        FacultyProfile facultyProfile;
+//        Business business;
+//        business = new Business("coursera");
+        PersonDirectory personDirectory=  business.getPersonDirectory();
+        EmployeeDirectory employeeDirectory=  business.getEmployeeDirectory();
+        UserAccountDirectory userAccountDirectory=  business.getUserAccountDirectory();
+
+        Person person;
+//        Profile Profile;
+
+        person = personDirectory.newPerson(txtUserName.getText());
+//        profile = Profile(person);
+        
+        FacultyDirectory facultyDirectory = new FacultyDirectory(business);
+        facultyProfile = facultyDirectory.newFacultyProfile(person);
+        UserAccount userAccount;
+        userAccount = userAccountDirectory.newUserAccount(facultyProfile,txtUserName.getText(),txtPassword.getText());
+//        userAccount = new UserAccount(facultyProfile,txtUserName.getText(),txtPassword.getText() );
         //        User userObj = UserDirectory.searchUser(txtNUID.getText());
         //        if(userObj!=null){
-            newUser.setUserName(txtUserName.getText());
-            String plainPassword= txtPassword.getText();
-            String hashedPassword = BCrypt.hashpw(plainPassword, BCrypt.gensalt());
+        facultyProfile.setUsername(txtUserName.getText());
+//        UserName(txtUserName.getText());
+        String plainPassword= txtPassword.getText();
+        String hashedPassword = BCrypt.hashpw(plainPassword, BCrypt.gensalt());
 
-            newUser.setPassword(hashedPassword);
-            newUser.setNUID(txtNUID.getText());
-            newUser.setFirstName(txtLastName.getText());
-            newUser.setLastName(txtLastName.getText());
-            newUser.setEnableStatus(chckboxEnabledStatus.isSelected());
-            newUser.setPasswordHistory();
-            newUser.addPasswordInHistory(hashedPassword);
-            JOptionPane.showMessageDialog(this, "User Information Saved.");
-
-            ListAllUsersJPanel1 listAllUsersJPanel = new ListAllUsersJPanel1(workArea, userDirectory);
-            workArea.add("ListAllUsersJPanel", listAllUsersJPanel);
-            CardLayout layout =(CardLayout)workArea.getLayout();
-            layout.next(workArea);
+        facultyProfile.setPassword(hashedPassword);
+        facultyProfile.setFirstName(txtFirstName.getText());
+        facultyProfile.setLastName(txtLastName.getText());
+        facultyProfile.setLocation(txtLocation.getText());
+        facultyProfile.setMajor(txtMajor.getText());
+        facultyProfile.setExperience(txtExperience.getText());
+        facultyProfile.setEmailId(txtEmailId.getText());
+//        facultyProfile.setPasswordHistory();
+//        facultyProfile.addPasswordInHistory(hashedPassword);
+        JOptionPane.showMessageDialog(this, "User Information Saved.");
+        FacultyWorkAreaJPanel facultyWorkAreaJPanel = new FacultyWorkAreaJPanel(business, CardSequencePanel);
+        CardSequencePanel.add("facultyWorkAreaJPanel", facultyWorkAreaJPanel);
+//        CardLayout layout =(CardLayout)workArea.getLayout();
+//        layout.next(workArea);
             //         }
         //        else{
             //            JOptionPane.showMessageDialog(this, "This NUID is already used previously", "Information", JOptionPane.INFORMATION_MESSAGE);
@@ -266,10 +305,11 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
-        workArea.remove(this);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.previous(workArea);
+        CardSequencePanel.remove(this);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+//        workArea.remove(this);
+//        CardLayout layout = (CardLayout) workArea.getLayout();
+//        layout.previous(workArea);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
@@ -280,9 +320,9 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
-    private void txtNUIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNUIDActionPerformed
+    private void txtEmailIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNUIDActionPerformed
+    }//GEN-LAST:event_txtEmailIdActionPerformed
 
     private void txtMajorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMajorActionPerformed
         // TODO add your handling code here:
@@ -300,21 +340,21 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
+    private javax.swing.JLabel lblEmailId;
     private javax.swing.JLabel lblExperience;
     private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblLastName;
     private javax.swing.JLabel lblLocation;
     private javax.swing.JLabel lblMajor;
-    private javax.swing.JLabel lblNUID;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JLabel lblUserName;
+    private javax.swing.JTextField txtEmailId;
     private javax.swing.JTextField txtExperience;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtMajor;
-    private javax.swing.JTextField txtNUID;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables

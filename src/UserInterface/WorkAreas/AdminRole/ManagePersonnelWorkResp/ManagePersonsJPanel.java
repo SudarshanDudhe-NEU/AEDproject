@@ -6,6 +6,7 @@
 package UserInterface.WorkAreas.AdminRole.ManagePersonnelWorkResp;
 
 import Business.Business;
+import UserInterface.WorkAreas.FacultyRole.ProfessorCreateJPanel;
 
 
 import javax.swing.JPanel;
@@ -44,6 +45,9 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
         Next = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnStudentReg = new javax.swing.JButton();
+        btnProfessorReg = new javax.swing.JButton();
+        btnEmployerReg = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setLayout(null);
@@ -55,7 +59,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
             }
         });
         add(Back);
-        Back.setBounds(20, 260, 76, 32);
+        Back.setBounds(20, 260, 97, 29);
 
         Next.setText("Next >>");
         Next.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +68,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
             }
         });
         add(Next);
-        Next.setBounds(500, 260, 80, 32);
+        Next.setBounds(500, 260, 80, 29);
 
         jLabel1.setText("Name");
         add(jLabel1);
@@ -73,7 +77,24 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel2.setText("Manage Personnel (HR)");
         add(jLabel2);
-        jLabel2.setBounds(21, 20, 550, 29);
+        jLabel2.setBounds(21, 20, 550, 28);
+
+        btnStudentReg.setText("As a Student");
+        add(btnStudentReg);
+        btnStudentReg.setBounds(80, 120, 123, 29);
+
+        btnProfessorReg.setText("As a Professor");
+        btnProfessorReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfessorRegActionPerformed(evt);
+            }
+        });
+        add(btnProfessorReg);
+        btnProfessorReg.setBounds(230, 120, 134, 29);
+
+        btnEmployerReg.setText("As an Employer");
+        add(btnEmployerReg);
+        btnEmployerReg.setBounds(390, 120, 141, 29);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
@@ -93,10 +114,20 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_NextActionPerformed
 
+    private void btnProfessorRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfessorRegActionPerformed
+        // TODO add your handling code here:
+        ProfessorCreateJPanel profCreate = new ProfessorCreateJPanel(business, CardSequencePanel);
+        CardSequencePanel.add(profCreate);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_btnProfessorRegActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
     private javax.swing.JButton Next;
+    private javax.swing.JButton btnEmployerReg;
+    private javax.swing.JButton btnProfessorReg;
+    private javax.swing.JButton btnStudentReg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

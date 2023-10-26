@@ -22,12 +22,24 @@ public class PersonDirectory {
     }
 
     public Person newPerson(String id) {
-
+        
         Person p = new Person(id);
         personlist.add(p);
         return p;
     }
+    
+//    public Person newPerson() {
+//        int length = personlist.size();
+//        int id = length + 1;
+//        Person p = new Person(Integer.toString(id));
+//        personlist.add(p);
+//        return p;
+//    }
 
+    public ArrayList<Person> getPersonList(){
+        return personlist;
+    }
+    
     public Person findPerson(String id) {
 
         for (Person p : personlist) {
