@@ -259,19 +259,14 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         FacultyProfile facultyProfile;
-//        Business business;
-//        business = new Business("coursera");
         PersonDirectory personDirectory=  business.getPersonDirectory();
         EmployeeDirectory employeeDirectory=  business.getEmployeeDirectory();
         UserAccountDirectory userAccountDirectory=  business.getUserAccountDirectory();
-
+        FacultyDirectory facultyDirectory = business.getFacultyDirectory();
         Person person;
-//        Profile Profile;
 
         person = personDirectory.newPerson(txtUserName.getText());
-//        profile = Profile(person);
         
-        FacultyDirectory facultyDirectory = new FacultyDirectory(business);
         facultyProfile = facultyDirectory.newFacultyProfile(person);
         UserAccount userAccount;
         userAccount = userAccountDirectory.newUserAccount(facultyProfile,txtUserName.getText(),txtPassword.getText());
@@ -292,9 +287,11 @@ public class ProfessorCreateJPanel extends javax.swing.JPanel {
         facultyProfile.setEmailId(txtEmailId.getText());
 //        facultyProfile.setPasswordHistory();
 //        facultyProfile.addPasswordInHistory(hashedPassword);
-        JOptionPane.showMessageDialog(this, "User Information Saved.");
+        System.out.println(facultyProfile);
+        JOptionPane.showMessageDialog(this, "Information Saved.");
         FacultyWorkAreaJPanel facultyWorkAreaJPanel = new FacultyWorkAreaJPanel(business, CardSequencePanel);
         CardSequencePanel.add("facultyWorkAreaJPanel", facultyWorkAreaJPanel);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 //        CardLayout layout =(CardLayout)workArea.getLayout();
 //        layout.next(workArea);
             //         }
