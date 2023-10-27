@@ -36,6 +36,7 @@ nbactions.xml
 # Maven
 target/
 pom.xml
+private/
 private.xml
 pom.xml.backup
 
