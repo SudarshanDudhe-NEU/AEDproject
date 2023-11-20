@@ -63,3 +63,8 @@ Thumbs.db
 
 # JAR files
 *.jar
+.DS_Store
+.DS_Store
+.DS_Store
+nbproject/.DS_Store
+src/Business/.DS_Store
